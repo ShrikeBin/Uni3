@@ -1,0 +1,83 @@
+@startuml class
+
+class CLI
+{
+    +commands: HashMap<String, Executable>
+
+    +addCommand(name: string, exec: executable)
+    +run(scanner: scanner)
+}
+
+interface Runnable 
+{
+    +run()
+}
+
+class Executable implements Runnable 
+{
+    +run()
+    +getDescription(): String
+}
+
+interface DataManager
+{
+    +addBook(title: String, author: String)
+    +addCopy(title: String, author: String)
+    +addReader(name: Name)
+    +rmBook(title: String, author: String)
+    +rmCopy(int: copyId)
+    +rmReader(int: readerId)
+    +lendBook(copyId: int, readerId: int)
+    +returnBook(loanId: int)
+}
+
+class Library implements DataManager
+{
+    +books: ArrayList<Book>
+    +copies: ArrayList<Copy>
+    +readers: ArrayList<Reader>
+    +loans: ArrayList<Loan>
+
+    +addBook(title: String, author: String)
+    +addCopy(title: String, author: String)
+    +addReader(name: Name)
+    +rmBook(title: String, author: String)
+    +rmCopy(int: copyId)
+    +rmReader(int: readerId)
+    +lendBook(copyId: int, readerId: int)
+    +returnBook(loanId: int)
+}
+
+class Book 
+{
+    +title: String
+    +author: String
+}
+
+class Copy 
+{
+    +id: int
+    +book: Book
+}
+
+class Loan 
+{
+    +copy: Copy
+    +reader: Reader
+    +isActive(): boolean
+}
+
+class Reader 
+{
+    +id: int
+    +name: String
+}
+Runnable --> Executable
+Executable --> CLI
+DataManager --> Library
+CLI --> DataManager
+Library --> Book
+Library --> Copy
+Library --> Loan
+Library --> Reader
+@enduml

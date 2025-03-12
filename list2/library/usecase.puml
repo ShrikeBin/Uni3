@@ -1,0 +1,21 @@
+@startuml usecase
+actor Librarian
+actor Reader
+
+usecase "Add Book" as UC1
+usecase "Add Copy" as UC2
+usecase "Remove Book" as UC3
+usecase "Lend Book" as UC4
+usecase "Return Book" as UC5
+usecase "Add Reader" as UC6
+
+Librarian --> UC1
+Librarian --> UC2
+Librarian --> UC3
+Librarian --> UC4
+Librarian --> UC5
+Librarian --> UC6
+
+Reader --> UC4
+Reader --> UC5
+@enduml
