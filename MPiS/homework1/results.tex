@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{Raport z Symulacji Monte Carlo}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Opis wyników}
+
+W ramach zadania wykorzystałem metodę Monte Carlo do przybliżonego obliczenia wartości całek oznaczonych dla następujących funkcji:
+\begin{itemize}
+    \item \( f(x) = \sin(x) \) na przedziale \( [0, \pi] \),
+    \item \( g(x) = 4x(1 - x)^3 \) na przedziale \( [0, 1] \),
+    \item \( h(x) = \sqrt[3]{x} \) na przedziale \( [0, 8] \),
+    \item \( \pi(x, y) = \begin{cases} 1 & \text{} x^2 + y^2 < 1 \\ 0 & \text{else} \end{cases} \) w kwadracie jednostkowym (przybliżanie wartości \(\pi\)).
+\end{itemize}
+
+Na wykresach (pliki .png) przedstawiam wyniki pojedynczych symulacji oraz ich średnie wartości, umożliwiając porównanie przybliżonych wyników Monte Carlo z wartościami faktycznymi.
+
+\section*{Wnioski}
+
+\begin{enumerate}
+    \item \textbf{Dokładność przybliżeń}: \\
+    Metoda Monte Carlo skutecznie przybliża wartości całek dla wszystkich analizowanych funkcji. Wraz ze wzrostem liczby próbek \( n \) rośnie stabilność wyników, co pozwala uzyskać przybliżenia bliższe wartości rzeczywistej.
+    
+    \item \textbf{Wpływ liczby powtórzeń}: \\
+    Zwiększenie liczby powtórzeń poprawia stabilność wyników, zmniejszając odchylenia od wartości rzeczywistej. Widać przez to, że liczba powtórzeń jest kluczowa dla dokładności wyników.
+    
+    \item \textbf{Charakterystyka zwiększania ilości powtórzeń dla \( n\)}: \\
+    Warto zauważyć że dla dużych wartości \( n\) wynik zaczylają oscylować wokół wartości faktycznej w stałym zakresie co obrazuje że zwiększanie liczby powtórzeń nie daje lepszego przybliżenia oraz że lepszym sposobem jest branie średniej z tych wyników.
+    
+    \item \textbf{Efektywność obliczeniowa}: \\
+    Choć metoda Monte Carlo jest prosta w implementacji, wymaga dużej mocy obliczeniowej dlatego powinna być używana by w relatywnie dokładny sposób przybliżać wartości o średniej dokładności.
+\end{enumerate}
+
+\section*{Podsumowanie}
+
+Symulacja Monte Carlo pozwala uzyskać wartości bliskie rzeczywistym dla wybranych funkcji, stanowiąc skuteczne narzędzie w przypadkach, gdy analityczne obliczenia są trudne. Zwiększenie liczby próbek i powtórzeń znacząco poprawia dokładność wyników, potwierdzając efektywność tej metody.
+\vspace{1cm} 
+
+\hfill
+\textbf{Jan Ryszkiewicz}
+
+\end{document}
